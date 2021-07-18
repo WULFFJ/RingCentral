@@ -143,6 +143,7 @@ def logapi():
              'showBlocked':True,
              'dateTo':dateTo,
              'dateFrom':f'{dateFrom}'}
+        
         global clog
         clog=requests.get(curl,headers=headers,params=params).json()
         list.append(clog)
@@ -164,3 +165,5 @@ def cleanjson():
     list['from.phoneNumber']=list['from.phoneNumber'].str[2:]
 
 cleanjson()
+
+list.to_excel(r'C:\XXXPATH_TO_SAVE_CALLSXXX\calls.xlsx')
